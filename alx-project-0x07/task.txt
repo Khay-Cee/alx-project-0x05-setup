@@ -1,0 +1,116 @@
+HookMastery: Unleashing the Power of Hooks
+ Novice
+⦁	 Weight: 1
+⦁	 Project will start Aug 4, 2025 12:00 AM, must end by Aug 11, 2025 12:00 AM
+⦁	 Checker was released at Aug 4, 2025 12:00 AM
+⦁	 Manual QA review must be done (request it when you are done with the project)
+⦁	 An auto review will be launched at the deadline
+Project Description
+This project is a Next.js-based web application that allows users to generate AI-powered images by providing text prompts. The app interfaces with the GPT-4 Image Generation API to create unique images based on user input. The application features a clean UI with state management, custom hooks, and API integration, while following React best practices.
+Learning Objectives
+By completing this project, you will:
+⦁	Understand and implement React state management using useState
+⦁	Create and utilize custom React hooks
+⦁	Work with environment variables for API key management
+⦁	Implement API routes in Next.js applications
+⦁	Develop reusable React components
+⦁	Manage application state across multiple components
+⦁	Implement responsive UI design with Tailwind CSS
+⦁	Handle asynchronous operations in React
+⦁	Follow React best practices for component structure and organization
+Requirements
+⦁	Node.js (v14 or later)
+⦁	Next.js (v13 or later)
+⦁	React (v18 or later)
+⦁	TypeScript
+⦁	Tailwind CSS
+⦁	GPT-4 API key (from RapidAPI)
+⦁	Modern web browser
+Project Structure
+alx-project-0x07/ (and subsequent versions) ├── components/ │ ├── common/ │ │ └── ImageCard.tsx │ └── layouts/ │ ├── Footer.tsx │ ├── Header.tsx │ └── Layout.tsx ├── constants/ │ └── index.ts ├── hooks/ │ └── useFetchData.ts ├── interfaces/ │ └── index.ts ├── pages/ │ ├── api/ │ │ └── generate-image.ts │ ├── _app.tsx │ └── index.tsx ├── public/ └── styles/ └── globals.css Best Practices Implemented
+Component Organization
+Logical separation of layout and functional components
+⦁	Reusable components (ImageCard)
+⦁	Proper component typing with TypeScript
+State Management
+Proper use of React hooks (useState, useEffect)
+⦁	Custom hook for API calls (useFetchData)
+⦁	Type-safe state definitions
+API Handling
+Server-side API route for secure API key usage
+⦁	Proper error handling
+⦁	Loading states
+Security
+API keys stored in environment variables
+⦁	Server-side API calls to protect keys
+⦁	Input sanitization (though more could be added)
+UI/UX
+Responsive design with Tailwind CSS
+⦁	Loading indicators
+⦁	Image gallery with preview functionality
+⦁	Clean, intuitive interface
+Type Safety
+TypeScript interfaces for all components and props
+⦁	Type-safe API responses
+⦁	Generic typing in custom hooks
+Key Features
+Image Generation
+Text prompt input
+⦁	API integration with GPT-4 Image Generation
+⦁	Loading states during generation
+Image Gallery
+History of generated images
+⦁	Thumbnail previews
+⦁	Click to view full image
+Responsive UI
+Works on mobile and desktop
+⦁	Clean, modern design
+⦁	Intuitive navigation
+Custom Hooks
+Reusable data fetching logic
+⦁	State management abstraction
+⦁	Error handling
+Development Notes
+The project evolves through multiple versions (0x07 to 0x13), each adding new functionality:
+Basic setup and layout (0x07)
+⦁	State management (0x08)
+⦁	Environment configuration (0x09)
+⦁	API integration (0x10)
+⦁	Image tracking (0x11)
+⦁	Custom hooks (0x12-0x13)
+The final version demonstrates:
+Clean separation of concerns
+⦁	Reusable components and hooks
+⦁	Proper TypeScript implementation
+⦁	Good React patterns
+For production use, additional features could include:
+User authentication
+⦁	Persistent storage of generated images
+⦁	More advanced error handling
+⦁	Image editing capabilities
+⦁	Social sharing features
+Quiz questions
+Great! You've completed the quiz successfully! Keep going! (Show quiz)
+Tasks
+0. Advance Image Generation Appmandatory
+Objectives: We have seen react hooks in previous projects. React hooks allows you to keep track of the temporary state of your application at any point in time. We are going to explore the useState Hook.
+Instructions:
+⦁	Create a nextjs app with project name alx-project-0x07
+⦁	Create the following directory structure
+⦁	components/layouts/Header.tsx
+⦁	components/layouts/Footer.tsx
+⦁	components/layouts/Layout.tsx
+⦁	interfaces/index.ts
+⦁	Replace the content of the Header.tsx with follow:
+⦁	import Link from 'next/link'; const Header: React.FC = () => { return ( <header className="bg-gray-800 text-white py-4"> <div className="container mx-auto flex justify-between items-center"> <div className="flex items-center"> <h1 className="text-2xl font-bold">ImageGen</h1> </div> <nav className="space-x-4"> <Link href="/" className="hover:text-gray-400">Home</Link> <Link href="/gallery" className="hover:text-gray-400">Gallery</Link> <Link href="/about" className="hover:text-gray-400">About</Link> <Link href="/contact" className="hover:text-gray-400">Contact</Link> </nav> </div> </header> ); } export default Header; Replace the content of the Footer.tsx with follow:
+⦁	import Link from "next/link"; const Footer: React.FC = () => { return ( <footer className="bg-gray-800 text-white py-6"> <div className="container mx-auto text-center"> <h1 className="text-lg font-semibold">Image Generation App</h1> <p className="mt-2 text-sm">© {new Date().getFullYear()}. All rights reserved.</p> <div className="mt-4"> <Link href="#" className="text-gray-400 hover:text-white mx-2">Privacy Policy</Link> <Link href="#" className="text-gray-400 hover:text-white mx-2">Terms of Service</Link> <Link href="#" className="text-gray-400 hover:text-white mx-2">Contact Us</Link> </div> </div> </footer> ); }; export default Footer; Replace the content of the Layout.tsx with follow:
+⦁	import { ReactComponentProps } from "@/interfaces"; import Footer from "./Footer" import Header from "./Header" const Layout: React.FC<ReactComponentProps> = ({ children }) => { return ( <> <Header /> <main className="min-h-screen"> {children} </main> <Footer /> </> ) } export default Layout; Add the ReactComponentProps definition on interfaces/index.ts file
+⦁	import * as React from "react" export interface ReactComponentProps { children: React.ReactNode } Replace the content of the _app.tsx with follow:
+⦁	import Layout from "@/components/layouts/Layout"; import "@/styles/globals.css"; import type { AppProps } from "next/app"; export default function App({ Component, pageProps }: AppProps) { return ( <Layout> <Component {...pageProps} /> </Layout> ) } Replace the content of the index.tsx with follow:
+⦁	import React, { useState } from "react"; const Home: React.FC = () => { const handleGenerateImage = async () => { console.log("Generating Images") }; return ( <div className="flex flex-col items-center min-h-screen bg-gray-100 p-4"> <div className="flex flex-col items-center"> <h1 className="text-4xl font-bold mb-2">Image Generation App</h1> <p className="text-lg text-gray-700 mb-4"> Generate stunning images based on your prompts! </p> <div className="w-full max-w-md"> <input type="text" placeholder="Enter your prompt here..." className="w-full p-3 border border-gray-300 rounded-lg mb-4" /> <button onClick={handleGenerateImage} className="w-full p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200" > Generate Image </button> </div> </div> </div> ); }; export default Home; Save and close your files
+⦁	Run npm run dev -- -p 3000 from the terminal
+⦁	From a tab in your browser type http://localhost:3000 to see the changes made.
+Repo:
+⦁	GitHub repository: alx-project-0x05-setup
+⦁	Directory: alx-project-0x07
+⦁	File: components/layouts, components/layouts/Header.tsx, components/layouts/Footer.tsx, components/layouts/Layout.tsx, interfaces/index.ts, pages/index.tsx, pages/_app.tsx

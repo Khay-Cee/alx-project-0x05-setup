@@ -1,0 +1,4 @@
+/* Tailwind base styles will be injected by PostCSS. Add custom global styles below if needed. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
